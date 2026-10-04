@@ -31,8 +31,8 @@ A single-page portfolio covering my background, work experience, projects, educa
 | Anchor | Contents |
 | --- | --- |
 | `#about` | Bio, education summary, current roles |
-| `#experience` | UMBC Data Analytics Lab, Accenture |
-| `#projects` | ARC AI (RAG), Big Data job market analysis, stock sentiment, skin cancer detection, cyberbullying detection |
+| `#experience` | Platinum Business Services (ML intern), UMBC Data Analytics Lab, Accenture |
+| `#projects` | ARC AI (RAG), Big Data job market analysis, stock sentiment, skin cancer detection, cyberbullying detection, vehicle fuel efficiency and emissions analytics |
 | `#skills` | Languages, big data and cloud, databases, ETL/DevOps, ML/AI, BI tools |
 | `#education` | UMBC MS, Sreenidhi B.Tech, certifications, awards |
 | `#contact` | Contact form, direct links, resume download |
