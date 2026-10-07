@@ -14,7 +14,7 @@ A portfolio covering my background, work experience, projects, education, and co
 
 - HTML, CSS, and vanilla JavaScript, inline in each page
 - [DM Sans](https://fonts.google.com/specimen/DM+Sans) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts
-- Images in `index.html` embedded as base64 data URIs; DermaFusion app screenshots (`overview.jpg`, `learn.jpg`) served from the repo root
+- Images in `index.html` embedded as base64 data URIs; the DermaFusion app icon and screenshots (`dermafusion-icon.png`, `overview.jpg`, `learn.jpg`, `screen-*.jpg`) served from the repo root
 - Hosted on GitHub Pages
 
 ## Features
@@ -23,7 +23,7 @@ A portfolio covering my background, work experience, projects, education, and co
 - Responsive layout with a mobile nav drawer
 - Scroll-triggered reveal animations via `IntersectionObserver`
 - Tabbed project sections
-- Dedicated DermaFusion project page with headline stats, app screens, results and architecture tables
+- Dedicated DermaFusion project page with headline stats, an eight-screen app gallery, results and architecture tables
 - 3D-tilt hero photo with a click-to-upload fallback
 - Contact form and quick links (email, LinkedIn, GitHub, phone)
 
@@ -44,8 +44,15 @@ A portfolio covering my background, work experience, projects, education, and co
 .
 ├── index.html                      # the main single-page site
 ├── dermafusion.html                # DermaFusion project page
-├── overview.jpg                    # DermaFusion app screenshot: melanoma overview
-├── learn.jpg                       # DermaFusion app screenshot: Learn / ABCDE rule
+├── dermafusion-icon.png            # DermaFusion app icon
+├── screen-scan.jpg                 # DermaFusion app screenshots, in gallery order
+├── screen-body-tap.jpg
+├── screen-gradcam.jpg
+├── screen-class-list.jpg
+├── screen-one-view.jpg
+├── learn.jpg                       # Learn / ABCDE rule
+├── overview.jpg                    # melanoma overview
+├── screen-body-model.jpg
 ├── Rahul_Reddy_Kota_Resume.pdf     # linked from the nav, hero, and footer
 └── README.md
 ```
@@ -83,7 +90,7 @@ Hard-refresh (`Ctrl/Cmd + Shift + R`) after deploying — browsers cache the HTM
 
 - **Replacing the headshot:** the hero image is a base64 data URI on the `#heroPhoto` `<img>` tag. Encode a new JPEG with `base64 -w0 photo.jpg` and swap the string. A 3:4 crop around 693×924 keeps the file near 55 KB.
 - **Updating the resume:** replace `Rahul_Reddy_Kota_Resume.pdf` at the repo root, keeping the filename so the hero and footer links keep working.
-- **DermaFusion page:** the project card in `index.html` links to `dermafusion.html`. Its metrics come from the [DermaFusion-Skin-Cancer](https://github.com/RahulReddyKota/DermaFusion-Skin-Cancer) README, so update both pages if the results change. To add app screens, add images at the repo root and add an `<li><img></li>` to the `.screens` list. The app icon on that page is a placeholder SVG inside `.app-icon`.
+- **DermaFusion page:** the project card in `index.html` links to `dermafusion.html`. Its metrics come from the [DermaFusion-Skin-Cancer](https://github.com/RahulReddyKota/DermaFusion-Skin-Cancer) README, so update both pages if the results change. To add app screens, add images at the repo root and add an `<li><img></li>` to the `.screens` list. The app icon is `dermafusion-icon.png`.
 - **Availability:** the "Open to Work" badge text lives in the `.hero-badge` div near the top of the hero section, and is echoed in the contact section blurb.
 
 ## Known limitations
