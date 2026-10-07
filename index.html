@@ -212,6 +212,8 @@ button{font-family:inherit}
 .chat-bot .src{color:#30d158;font-size:.5rem;margin-top:4px;display:block}
 .device-graph{width:300px;height:200px;border-radius:12px;border:2px solid rgba(255,255,255,.1);background:#111;padding:14px;box-shadow:0 30px 60px -15px rgba(0,0,0,.5)}
 .device-derma{width:240px;height:200px;border-radius:18px;border:2px solid rgba(255,255,255,.1);background:#111;padding:12px;box-shadow:0 30px 60px -15px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}
+.derma-shots{display:flex;gap:16px;align-items:center;justify-content:center;width:100%}
+.derma-shots img{width:calc(50% - 8px);max-width:210px;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 60px -15px rgba(0,0,0,.5)}
 .derma-img{flex:1;border-radius:10px;background:linear-gradient(135deg,#d4a574,#a06548);position:relative;overflow:hidden}
 .derma-img::before{content:'';position:absolute;width:30px;height:30px;background:rgba(120,40,30,.5);border-radius:50%;top:30%;left:35%;box-shadow:0 0 0 6px rgba(120,40,30,.2)}
 .derma-label{font-family:var(--font-mono);font-size:.6rem;color:var(--accent);text-align:center}
@@ -228,7 +230,7 @@ button{font-family:inherit}
 .project-desc{font-size:.93rem;color:var(--text-2);line-height:1.7;margin-bottom:22px}
 .project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
 .project-stack span{padding:4px 12px;border-radius:6px;font-family:var(--font-mono);font-size:.72rem;background:var(--bg-card);color:var(--text-3);border:.5px solid var(--border)}
-.project-metrics{display:flex;gap:28px}
+.project-metrics{display:flex;flex-wrap:wrap;gap:16px 28px}
 .pm-value{font-size:1.4rem;font-weight:700;letter-spacing:-.02em;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .pm-label{font-size:.75rem;color:var(--text-3);margin-top:2px}
 
@@ -383,13 +385,13 @@ button{font-family:inherit}
   <div class="hero-bg-element bg-formula bg-formula-4">P(c|x) = softmax</div>
 
   <div class="hero-bg-element bg-mini bg-mini-1">
-    <div class="mc-label">Val Accuracy</div>
+    <div class="mc-label">Top-3 Accuracy</div>
     <div class="mc-bars">
       <div class="mc-bar" style="height:25%"></div><div class="mc-bar" style="height:40%"></div>
       <div class="mc-bar" style="height:58%"></div><div class="mc-bar" style="height:72%"></div>
       <div class="mc-bar mc-bar-accent" style="height:88%"></div>
     </div>
-    <div class="mc-value">90.4%</div>
+    <div class="mc-value">95.4%</div>
   </div>
 
   <div class="hero-bg-element bg-dash bg-dash-1">
@@ -519,7 +521,7 @@ button{font-family:inherit}
         <div class="skill-card-title">ML &amp; Deep Learning</div>
         <div class="skill-card-sub">From CNNs to transformers</div>
         <div class="skill-list">
-          <span class="skill-chip">TensorFlow</span><span class="skill-chip">Keras</span><span class="skill-chip">PyTorch</span><span class="skill-chip">scikit-learn</span><span class="skill-chip">HuggingFace</span><span class="skill-chip">ResNet50</span><span class="skill-chip">VGG16</span><span class="skill-chip">Bi-LSTM</span><span class="skill-chip">XGBoost</span><span class="skill-chip">Grad-CAM</span>
+          <span class="skill-chip">TensorFlow</span><span class="skill-chip">Keras</span><span class="skill-chip">PyTorch</span><span class="skill-chip">scikit-learn</span><span class="skill-chip">HuggingFace</span><span class="skill-chip">EfficientNet</span><span class="skill-chip">ResNet50</span><span class="skill-chip">VGG16</span><span class="skill-chip">Bi-LSTM</span><span class="skill-chip">XGBoost</span><span class="skill-chip">Grad-CAM</span>
         </div>
         <div class="proficiency">
           <div class="prof-row"><span class="prof-label">Deep Learning</span><div class="prof-track"><div class="prof-fill" data-w="92"></div></div></div>
@@ -596,20 +598,22 @@ button{font-family:inherit}
 
       <div class="project-tile reveal d1">
         <div class="project-visual pv-1">
-          <div class="device device-derma">
-            <div class="derma-img"></div>
-            <div class="derma-label">▸ MEL · 90.4% confidence</div>
+          <div class="device derma-shots">
+            <img src="assets/dermafusion/overview.jpg" width="640" height="1390" loading="lazy" alt="DermaFusion iOS app: melanoma overview screen with key visual features and a malignant label">
+            <img src="assets/dermafusion/learn.jpg" width="640" height="1387" loading="lazy" alt="DermaFusion iOS app: Learn screen with the ABCDE rule and skin-lesion types labeled benign or malignant">
           </div>
         </div>
         <div class="project-info">
-          <div class="project-tag-mini">▸ HEALTHCARE AI · CNN</div>
-          <h3 class="project-title">DermaFusion — Skin Cancer Detection</h3>
-          <p class="project-desc">A CNN leveraging ResNet50 and VGG16 transfer learning to classify dermoscopic images from the HAM10000 dataset. Grad-CAM applied for clinical-grade explainability across all seven lesion categories. <strong style="color:var(--text-1)">Awarded AI RADA &amp; Healthcare prize.</strong></p>
-          <div class="project-stack"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>ResNet50</span><span>VGG16</span><span>OpenCV</span><span>Grad-CAM</span></div>
+          <div class="project-tag-mini">▸ HEALTHCARE AI · ON-DEVICE CNN ENSEMBLE</div>
+          <h3 class="project-title"><a href="dermafusion.html">DermaFusion — On-Device Skin-Lesion Classification</a></h3>
+          <p class="project-desc">A two-model EfficientNet-B4 soft-vote ensemble for 8-class skin-lesion classification, trained on 61,694 dermoscopic and smartphone images unified from ISIC 2018/2019/2020 and PAD-UFES-20 with patient-grouped, leakage-free splits. Shades-of-Gray color constancy, DullRazor hair removal, class-balanced focal loss, MixUp and EMA feed Dirichlet-tuned ensemble weights and per-class thresholds. Ships as a Gradio research demo and a native iOS app running FP16 Core ML models fully on device, with Grad-CAM overlays and a malignant-risk gauge. Evaluated on a 5,279-image held-out test set. Educational research prototype, not a medical device. <strong style="color:var(--text-1)">Awarded AI RADA &amp; Healthcare prize.</strong></p>
+          <div class="project-stack"><span>Python</span><span>PyTorch</span><span>EfficientNet-B4</span><span>Grad-CAM</span><span>OpenCV</span><span>Gradio</span><span>Core ML</span></div>
           <div class="project-metrics">
-            <div><div class="pm-value">90.4%</div><div class="pm-label">Val Accuracy</div></div>
-            <div><div class="pm-value">7</div><div class="pm-label">Lesion Classes</div></div>
-            <div><div class="pm-value">🥇</div><div class="pm-label">Award 2026</div></div>
+            <div><div class="pm-value">0.830</div><div class="pm-label">Malignant AUROC</div></div>
+            <div><div class="pm-value">95.4%</div><div class="pm-label">Top-3 Accuracy</div></div>
+            <div><div class="pm-value">61.7K</div><div class="pm-label">Training Images</div></div>
+            <div><div class="pm-value">›</div><div class="pm-label"><a href="dermafusion.html" style="color:var(--accent);text-decoration:underline">Full project ›</a></div></div>
+            <div><div class="pm-value">↗</div><div class="pm-label"><a href="https://github.com/RahulReddyKota/DermaFusion-Skin-Cancer" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">GitHub ↗</a></div></div>
           </div>
         </div>
       </div>
