@@ -14,7 +14,7 @@ A portfolio covering my background, work experience, projects, education, and co
 
 - HTML, CSS, and vanilla JavaScript, inline in each page
 - [DM Sans](https://fonts.google.com/specimen/DM+Sans) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts
-- Images in `index.html` embedded as base64 data URIs; DermaFusion app screenshots served from `assets/dermafusion/`
+- Images in `index.html` embedded as base64 data URIs; DermaFusion app screenshots (`overview.jpg`, `learn.jpg`) served from the repo root
 - Hosted on GitHub Pages
 
 ## Features
@@ -44,10 +44,8 @@ A portfolio covering my background, work experience, projects, education, and co
 .
 ├── index.html                      # the main single-page site
 ├── dermafusion.html                # DermaFusion project page
-├── assets/
-│   └── dermafusion/
-│       ├── overview.jpg            # app screenshot: melanoma overview
-│       └── learn.jpg               # app screenshot: Learn / ABCDE rule
+├── overview.jpg                    # DermaFusion app screenshot: melanoma overview
+├── learn.jpg                       # DermaFusion app screenshot: Learn / ABCDE rule
 ├── Rahul_Reddy_Kota_Resume.pdf     # linked from the nav, hero, and footer
 └── README.md
 ```
@@ -85,7 +83,7 @@ Hard-refresh (`Ctrl/Cmd + Shift + R`) after deploying — browsers cache the HTM
 
 - **Replacing the headshot:** the hero image is a base64 data URI on the `#heroPhoto` `<img>` tag. Encode a new JPEG with `base64 -w0 photo.jpg` and swap the string. A 3:4 crop around 693×924 keeps the file near 55 KB.
 - **Updating the resume:** replace `Rahul_Reddy_Kota_Resume.pdf` at the repo root, keeping the filename so the hero and footer links keep working.
-- **DermaFusion page:** the project card in `index.html` links to `dermafusion.html`. Its metrics come from the [DermaFusion-Skin-Cancer](https://github.com/RahulReddyKota/DermaFusion-Skin-Cancer) README, so update both pages if the results change. To add app screens, drop images into `assets/dermafusion/` and add an `<li><img></li>` to the `.screens` list. The app icon on that page is a placeholder SVG inside `.app-icon`.
+- **DermaFusion page:** the project card in `index.html` links to `dermafusion.html`. Its metrics come from the [DermaFusion-Skin-Cancer](https://github.com/RahulReddyKota/DermaFusion-Skin-Cancer) README, so update both pages if the results change. To add app screens, add images at the repo root and add an `<li><img></li>` to the `.screens` list. The app icon on that page is a placeholder SVG inside `.app-icon`.
 - **Availability:** the "Open to Work" badge text lives in the `.hero-badge` div near the top of the hero section, and is echoed in the contact section blurb.
 
 ## Known limitations
