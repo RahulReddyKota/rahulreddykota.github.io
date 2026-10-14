@@ -35,8 +35,7 @@ button{font-family:inherit}
 .hero{padding:140px 24px 0;text-align:center}
 .back{display:inline-block;font-size:.9rem;color:var(--text-2);margin-bottom:28px;transition:color .3s}
 .back:hover{color:var(--text-1)}
-.app-icon{width:104px;height:104px;border-radius:24px;margin:0 auto 22px;background:var(--icon-bg);border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 50px -18px rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center}
-.app-icon svg{width:68px;height:68px}
+.app-icon{display:block;width:112px;height:112px;border-radius:25px;margin:0 auto 22px;box-shadow:0 20px 50px -18px rgba(0,0,0,.6)}
 .hero h1{font-size:clamp(3rem,9vw,5.6rem);font-weight:700;letter-spacing:-.045em;line-height:1.02}
 .hero-sub{margin-top:16px;font-size:clamp(1.15rem,2.7vw,1.75rem);font-weight:600;letter-spacing:-.02em;line-height:1.25;background:var(--sub-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block}
 .hero-desc{max-width:680px;margin:28px auto 0;font-size:clamp(1rem,1.9vw,1.25rem);color:var(--text-2);line-height:1.5;letter-spacing:-.01em}
@@ -55,9 +54,15 @@ button{font-family:inherit}
 .lead strong,.prose strong{color:var(--text-1);font-weight:600}
 
 /* SCREENS */
-.screens{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 24px 22px;margin:0 -24px;scrollbar-width:thin}
-.screens li{list-style:none;flex:0 0 auto;scroll-snap-align:center}
-.screens img{display:block;width:min(300px,72vw);height:auto;border-radius:28px;border:1px solid var(--border)}
+.screens{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;list-style:none}
+.screens li{list-style:none;min-width:0}
+.screens img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--border)}
+.screens-caption{margin-top:18px;text-align:center;font-size:.85rem;color:var(--text-3)}
+@media(max-width:900px){
+  .screens{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 24px 18px;margin:0 -24px;scrollbar-width:thin}
+  .screens li{flex:0 0 auto;scroll-snap-align:center}
+  .screens img{width:min(240px,62vw)}
+}
 
 /* BUILT LIST */
 .built{list-style:none;border-top:.5px solid var(--border)}
@@ -132,13 +137,7 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 <main>
   <header class="hero">
     <a class="back" href="index.html#projects">‹ All projects</a>
-    <div class="app-icon" aria-hidden="true">
-      <svg viewBox="0 0 68 68" fill="none">
-        <circle cx="26" cy="34" r="18" fill="#2997ff" fill-opacity=".85"/>
-        <circle cx="42" cy="34" r="18" fill="#ff4f8b" fill-opacity=".8"/>
-        <circle cx="34" cy="34" r="5" fill="#fff"/>
-      </svg>
-    </div>
+    <img class="app-icon" src="dermafusion-icon.png" width="112" height="112" alt="DermaFusion app icon">
     <h1>DermaFusion</h1>
     <p class="hero-sub">On-device skin-lesion classification · Research prototype</p>
     <p class="hero-desc">A two-model EfficientNet-B4 ensemble trained on four public dermatology datasets, shipped as a Gradio research demo and a native iOS app that analyzes photos entirely on iPhone with no cloud, sign-in, or analytics.</p>
@@ -154,9 +153,13 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
   <section class="section">
     <h2>DermaFusion screens.</h2>
     <ul class="screens">
-      <li><img src="overview.jpg" width="640" height="1390" alt="DermaFusion iOS app: melanoma overview screen with key visual features and a malignant label"></li>
-      <li><img src="learn.jpg" width="640" height="1387" loading="lazy" alt="DermaFusion iOS app: Learn screen with the ABCDE rule and skin-lesion types labeled benign or malignant"></li>
+      <li><img src="screen-scan.jpg" width="472" height="1024" alt="Scan screen with New Scan and Choose from Library"></li>
+      <li><img src="screen-body-tap.jpg" width="472" height="1024" alt="3D body model for marking the lesion location"></li>
+      <li><img src="screen-gradcam.jpg" width="472" height="1024" loading="lazy" alt="Scan detail with the Grad-CAM heatmap switched on"></li>
+      <li><img src="screen-class-list.jpg" width="472" height="1024" loading="lazy" alt="Class list with a confidence gauge"></li>
+      <li><img src="screen-overview.jpg" width="472" height="1024" loading="lazy" alt="Melanoma overview with key visual features"></li>
     </ul>
+    <p class="screens-caption">Screens from the DermaFusion iOS app, which runs the exported ensemble on device.</p>
   </section>
 
   <section class="section narrow">
@@ -180,7 +183,7 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
     <div class="eyebrow">Project details</div>
     <h2>In depth.</h2>
     <p>Multi-source deep learning for <strong>8-class skin-lesion classification</strong> (MEL, NV, BCC, AKIEC, BKL, DF, VASC, OTHER), trained on four public dermatology datasets and deployed as both a Gradio research demo and a native iOS app.</p>
-    <p class="note"><strong>DermaFusion is an educational and research tool. It is not a medical device, not FDA approved, and not a substitute for professional medical advice.</strong></p>
+    <p class="note"><strong>DermaFusion is an educational and research tool. It is not a medical device, not FDA approved, and not a substitute for professional medical advice.</strong> It has not been clinically validated and must not be used to diagnose, screen, or make decisions about any real skin condition. Concerning skin lesions should always be evaluated by a qualified clinician.</p>
 
     <h3>Headline results</h3>
     <p>Final E0 + E3 soft-vote ensemble (EfficientNet-B4 × 2, 380 × 380), TEST set n = 5,279, 1,000-iteration bootstrap 95% CI:</p>
@@ -196,6 +199,7 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
         </tbody>
       </table>
     </div>
+    <p class="note"><strong>Reading the headline number.</strong> 0.540 balanced accuracy is across <strong>8 unified classes spanning four datasets</strong> (dermoscopic <em>and</em> smartphone images), which is a harder setting than a single-dataset 8-class benchmark. Top-2 accuracy of 0.907 and a binary-malignant AUROC of 0.830 are the more clinically meaningful framing of the same model.</p>
 
     <h3>Architecture summary</h3>
     <div class="table-wrap">
